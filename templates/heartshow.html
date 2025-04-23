@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Heart disease detector</title>
+</head>
+<style>
+    
+ /* General body styling */
+ body {
+            background-image: url(https://img.freepik.com/free-photo/copy-space-heart-shape-stethoscope_23-2148519790.jpg?t=st=1731578155~exp=1731581755~hmac=7208c1c0884091edea9893e7fbf7ada7acc9d5b3ed8b7e860e94ff59855bcdf6&w=740);
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: rgba(17, 2, 2, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        /* Navbar title styling */
+        .navbar .title {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        /* Navbar link styling */
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #027e94;
+        }
+
+        /* Content section styling */
+        .content {
+            background-color: #197485d2;
+            color: #7ed2f3;
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin: 80px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1200px;
+            line-height: 1.6;
+        }
+
+        /* Section headers */
+        h2, h3 {
+            color: #91dbf8;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        /* Paragraph text styling */
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            background-color: rgba(155, 247, 239, 0.603);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive design for smaller screens */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .content {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 22px;
+            }
+        }
+    </style>
+<body>
+
+
+    <div class="navbar">
+        <div class="title"> <a href="/">Health Prediction System</a></div>
+        <div class="nav-links">
+            <a href="/bcancerhome">Breast Cancer Prediction</a>
+            <a href="/dia">Diabetes Prediction</a>
+            <a href="/kidney">Kidney Disease Prediction</a>
+            <a href="/heart">Heart Disease Prediction</a>
+        </div>
+    </div><br><br><br><br><br>
+<div class="container" style="background-color: #7ed2f3;">
+
+    <div class="results text-center my-5" style="color: #000000;">
+        {% if prediction1 == 1 %}
+          <!-- Positive Result -->
+          <h1><span class="text-center">Oops! You have Heart Disease.</span></h1>
+      
+          <!-- Description -->
+          <div class="mt-4" style="max-width: 700px; margin: 0 auto; text-align: left;">
+            <h4>🔍 What this means:</h4>
+            <p>
+              Heart disease refers to conditions that affect the heart’s structure and function, including issues like coronary artery disease, arrhythmias, or heart failure.
+              It’s important to follow up with a cardiologist and make immediate lifestyle changes to manage your condition.
+            </p>
+      
+            <h4>🥗 Recommended Diet:</h4>
+            <ul>
+              <li>Eat more fruits, vegetables, whole grains, and legumes.</li>
+              <li>Choose lean proteins like fish, chicken (grilled or baked), and plant-based options.</li>
+              <li>Limit saturated fats, red meat, trans fats, and high-sodium foods.</li>
+              <li>Use healthy fats like olive oil and avocado in moderation.</li>
+              <li>Stay hydrated and avoid sugary drinks and processed snacks.</li>
+            </ul>
+      
+            <h4>🏃 Recommended Exercises:</h4>
+            <ul>
+              <li>30–45 minutes of moderate aerobic exercise (like brisk walking, swimming, or cycling) most days of the week.</li>
+              <li>Light strength training 2–3 times per week (after consulting your doctor).</li>
+              <li>Daily stretching and stress-reducing activities like yoga or meditation.</li>
+            </ul>
+          </div>
+      
+        {% elif prediction1 == 0 %}
+          <!-- Negative Result -->
+          <h1><span class="text-center">🎉 Wow! You DON'T have Heart Disease.</span></h1>
+          <img class="gif1" src="{{ url_for('static', filename='yes2.webp')}}" alt="Not STROKE Image"><br>
+          <!-- Description -->
+          <div class="mt-4" style="max-width: 700px; margin: 0 auto; text-align: left;">
+            <p>
+              Great news! Your results suggest that you currently do not have heart disease. Keep up the good work and continue living a heart-healthy lifestyle to maintain this status.
+            </p>
+      
+            <h4>💡 Healthy Heart Tips:</h4>
+            <ul>
+              <li>Stay active — aim for 150 minutes of moderate physical activity per week.</li>
+              <li>Maintain a balanced diet rich in fiber, fruits, and healthy fats.</li>
+              <li>Avoid smoking, limit alcohol, and manage stress effectively.</li>
+              <li>Get regular checkups and monitor blood pressure and cholesterol levels.</li>
+            </ul>
+          </div>
+        {% endif %}
+      
+        <!-- Go Back Button -->
+        <a href="/heart">
+          <button class="btn btn-outline-success" type="submit">Go Back</button>
+        </a>
+        <br><br><br><br><br>
+      </div>
+      
+
+</div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> {% include "copyrights.html" %}
+
+</body>
+
+</html>

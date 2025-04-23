@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidney Disease Result</title>
+</head>
+<style>
+   /* General body styling */
+   body {
+            background-image: url(https://img.freepik.com/free-photo/copy-space-heart-shape-stethoscope_23-2148519790.jpg?t=st=1731578155~exp=1731581755~hmac=7208c1c0884091edea9893e7fbf7ada7acc9d5b3ed8b7e860e94ff59855bcdf6&w=740);
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: rgba(17, 2, 2, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        /* Navbar title styling */
+        .navbar .title {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        /* Navbar link styling */
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #027e94;
+        }
+
+        /* Content section styling */
+        .content {
+            background-color: #197485d2;
+            color: #7ed2f3;
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin: 80px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1200px;
+            line-height: 1.6;
+        }
+
+        /* Section headers */
+        h2, h3 {
+            color: #91dbf8;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        /* Paragraph text styling */
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            background-color: rgba(155, 247, 239, 0.603);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive design for smaller screens */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .content {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 22px;
+            }
+        }
+</style>
+
+<body>
+    <div class="navbar">
+        <div class="title"> <a href="/">Health Prediction System</a></div>
+        <div class="nav-links">
+            <a href="/bcancerhome">Breast Cancer Prediction</a>
+            <a href="/dia">Diabetes Prediction</a>
+            <a href="/kidney">Kidney Disease Prediction</a>
+            <a href="/heart">Heart Disease Prediction</a>
+        </div>
+    </div>
+    <div class="container" style="background-color: #91dbf8d8;">
+    <div style="color:black;" class="container">
+        <form action="{{ url_for('kidneypredict')}}" method="post">
+            <h2 class='container-heading'><span class="heading_font">Chronic Kidney Disease Prediction</span></h2>
+
+        <br><br><br><br>
+<center>
+        <div style="color:black;" class="results">
+            {% if prediction == 1 %}
+              <!-- CKD Positive Message -->
+              <h1>
+                <span class='danger'>
+                  Oops! 🙁<br><br>
+                  You have CHRONIC KIDNEY DISEASE.<br><br>
+                  Please consult a doctor immediately.
+                </span>
+              </h1>
+          
+              <!-- Description and Recommendations -->
+              <div style="margin-top: 30px; max-width: 700px;">
+                <h4>🔍 What this means:</h4>
+                <p>
+                  Chronic Kidney Disease (CKD) means your kidneys are not working as well as they should to filter waste and excess fluids from your blood.
+                  It is important to get medical guidance to slow the progression and manage symptoms.
+                </p>
+          
+                <h4>🥗 Recommended Diet:</h4>
+                <ul>
+                  <li>Choose low-sodium foods to help manage blood pressure.</li>
+                  <li>Limit protein intake (e.g., red meat) if advised by a doctor.</li>
+                  <li>Eat more fresh fruits and vegetables (low in potassium, like apples, grapes, and cauliflower).</li>
+                  <li>Avoid processed foods, canned soups, salty snacks, and soda.</li>
+                </ul>
+          
+                <h4>🏃‍♀️ Exercise Tips:</h4>
+                <ul>
+                  <li>Light to moderate physical activity such as walking, stretching, or cycling (30 mins, 3–5 days a week).</li>
+                  <li>Avoid overexertion—consult your doctor before starting any routine.</li>
+                  <li>Stay well hydrated (based on your doctor’s advice).</li>
+                </ul>
+              </div>
+          
+              <!-- Image -->
+              <br><br>
+              <img class="gif" src="{{ url_for('static', filename='no.gif')}}" alt="CKD Image">
+          
+            {% elif prediction == 0 %}
+              <!-- CKD Negative Message -->
+              <h1>
+                <span class='safe'>
+                  🎉 Congratulations! 🎉<br><br>
+                  You DON'T have Chronic Kidney Disease.
+                </span>
+                           </h1>
+          
+              <!-- Description and Healthy Living Tips -->
+              <div style="margin-top: 30px; max-width: 700px;">
+                <p>
+                  Your results indicate healthy kidney function. Keep maintaining a balanced lifestyle to support kidney and overall health.
+                </p>
+          
+                <h4>💡 Health Tips:</h4>
+                <ul>
+                  <li>Stay hydrated with clean water.</li>
+                  <li>Eat a balanced diet rich in vegetables, fruits, and whole grains.</li>
+                  <li>Limit intake of salt, red meat, and sugary drinks.</li>
+                  <li>Exercise regularly — even a brisk walk daily helps.</li>
+                  <li>Avoid smoking and excessive alcohol consumption.</li>
+                </ul>
+              </div>
+            </center> 
+              <!-- Image -->
+              <br><br>
+              <img class="gif1" src="{{ url_for('static', filename='yes2.webp')}}" alt="Healthy Kidney Image">
+            {% endif %}
+          </div>
+          
+        </form>
+
+    </div>
+    <div>
+            <br><br> <br><br><br><br><br><br><br><br>
+
+            {% include "copyrights.html" %}
+
+    </div>
+
+
+<style>
+
+/* Background Image */
+body
+{
+background-image:url("https://raw.githubusercontent.com/SagarDhandare/Chronic-Kidney-Disease-Prediction-Project/main/kidney.jpg");
+height: 100%;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: 100% 100%;
+
+}
+
+/* Color */
+body{
+	font-family: Arial, Helvetica,sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+
+/* Heading Font */
+.container-heading{
+    margin: 0;
+}
+
+.heading_font{
+    color: #black;
+	font-family: 'Pacifico', cursive;
+	font-size: 50px;
+	font-weight: normal;
+}
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</style>
+
+
+</body>
+
+</html>

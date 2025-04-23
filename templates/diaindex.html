@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Diabetes Prediction</title>
+    <style>
+      /* General body styling */
+      body {
+            background-image: url(https://img.freepik.com/free-photo/copy-space-heart-shape-stethoscope_23-2148519790.jpg?t=st=1731578155~exp=1731581755~hmac=7208c1c0884091edea9893e7fbf7ada7acc9d5b3ed8b7e860e94ff59855bcdf6&w=740);
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: rgba(17, 2, 2, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        /* Navbar title styling */
+        .navbar .title {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        /* Navbar link styling */
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #027e94;
+        }
+
+        /* Content section styling */
+        .content {
+            background-color: #197485d2;
+            color: #7ed2f3;
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin: 80px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1200px;
+            line-height: 1.6;
+        }
+
+        /* Section headers */
+        h2, h3 {
+            color: #91dbf8;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        /* Paragraph text styling */
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            background-color: rgba(155, 247, 239, 0.603);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive design for smaller screens */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .content {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 22px;
+            }
+        }
+        .container {
+    background-color: #76d5dbe0; /* Light gray background for contrast */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 40px 20px; /* Padding for spacing within the container */
+    max-width: 800px; /* Limit the width for readability */
+    margin: 30px auto; /* Center the container on the page */
+    border: 1px solid #ddd; /* Optional border for a cleaner look */
+}
+
+.container h1 {
+    font-size: 30px;
+    color: rgb(102, 0, 51); /* Dark purple for the header */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+fieldset {
+    border: none; /* Remove default fieldset border */
+    padding: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: #333; /* Dark gray text for labels */
+}
+
+input[type="number"],
+button {
+    border-radius: 5px; /* Rounded corners for inputs and buttons */
+}
+
+button {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+    </style>
+</head>
+<body class="bg-light">
+  <div class="navbar">
+    <div class="title"> <a href="/">Health Prediction System</a></div>
+    <div class="nav-links">
+        <a href="/bcancerhome">Breast Cancer Prediction</a>
+        <a href="/dia">Diabetes Prediction</a>
+        <a href="/kidney">Kidney Disease Prediction</a>
+        <a href="/heart">Heart Disease Prediction</a>
+    </div>
+</div>
+  <br>     <br>     <br>     <br>     <br>
+  <div class="container mt-5">
+    <!-- Box Container -->
+    <div class="box-container">
+ 
+      <form action="" method="POST">
+        <fieldset class="p-3">
+          <h1 style="color: rgb(102, 0, 51); text-align: center;">DIABETES PREDICTION</h1>
+
+          {% if prediction != -1 %}
+            <div class="flex-container row m-auto justify-content-center">
+          
+              <!-- Dynamic Description -->
+              <div class="mt-4 mb-2 text-center" style="max-width: 700px;">
+                {% if prediction == 0 %}
+                  <p style="font-size: 16px;">
+                    Based on the analysis, it appears unlikely that the patient currently has or will develop diabetes. 
+                    However, maintaining a healthy lifestyle is always important for long-term well-being.
+                  </p>
+                  <p><strong>Recommended lifestyle tips:</strong></p>
+                  <ul style="text-align: left;color: #01033c;">
+                    <li>💧 Stay hydrated and avoid sugary drinks.</li>
+                    <li>🥗 Include whole grains, lean proteins, and plenty of vegetables in your diet.</li>
+                    <li>🚶‍♂️ Aim for at least 30 minutes of moderate activity (like brisk walking) most days of the week.</li>
+                    <li>🛌 Ensure regular sleep and manage stress levels.</li>
+                  </ul>
+                {% else %}
+                  <p style="font-size: 16px;">
+                    The model suggests that it is highly likely the patient already has or may develop diabetes in the future. 
+                    This is not a definitive diagnosis, but a strong indicator based on patterns in the provided data.
+                    Please consult a healthcare professional for further testing and medical advice.
+                  </p>
+                  <p><strong>Recommended lifestyle changes for diabetes management/prevention:</strong></p>
+                  <ul style="text-align: left;color: #01033c;">
+                    <li>🥦 <strong>Diet:</strong> Focus on low-glycemic index foods such as leafy greens, whole grains, legumes, berries, and lean proteins. Avoid sugary snacks, processed foods, and refined carbs.</li>
+                    <li>🏃 <strong>Exercise:</strong> Engage in at least 150 minutes per week of moderate-intensity exercise like walking, swimming, or cycling. Strength training 2-3 times a week is also beneficial.</li>
+                    <li>🩺 <strong>Monitor:</strong> Regularly check blood sugar levels and follow prescribed medications if applicable.</li>
+                    <li>🧘‍♂️ <strong>Lifestyle:</strong> Reduce stress through yoga, meditation, or breathing exercises, and aim for 7–8 hours of sleep each night.</li>
+                  </ul>
+                {% endif %}
+              </div>
+          
+              <!-- Alert Message -->
+              <div class="alert alert-dismissible fade show mt-3 {% if prediction == 1 %} alert-danger {% else %} alert-success {% endif %}" role="alert">
+                {% if prediction == 0 %}
+                  It is unlikely for the patient to have diabetes!
+                {% else %}
+                  It is highly likely that the patient already has or will have diabetes!
+                {% endif %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+          
+            </div>
+          {% endif %}
+          
+          
+          <div class="flex-container row m-auto justify-content-center">
+            <label for="pregs" class="col-md-4 col-sm-12 m-2 p-1">Pregnancies</label><br><br>
+            <label for="gluc" class="col-md-4 col-sm-12 m-2 p-1">Glucose Level</label>
+          </div>
+          <div class="flex-container row m-auto justify-content-center">
+            <input type="number" min=0 max=10 class="col-md-4 col-sm-12 m-2 p-1 form-control" name="pregs" required placeholder="No. of Pregnancies">
+            <input type="number" class="col-md-4 col-sm-12 m-2 p-1 form-control" name="gluc" required placeholder="Glucose Level (in mg/dL)">
+          </div>
+
+          <div class="flex-container row m-auto justify-content-center">
+            <label for="bp" class="col-md-4 col-sm-12 m-2 p-1">Blood Pressure</label><br><br>
+            <label for="skin" class="col-md-4 col-sm-12 m-2 p-1">Skin Thickness</label>
+          </div>
+          <div class="flex-container row m-auto justify-content-center">
+            <input type="number" class="col-md-4 col-sm-12 m-2 p-1 form-control" name="bp" required placeholder="Blood Pressure (in mm Hg)">
+            <input type="number" class="col-md-4 col-sm-12 m-2 p-1 form-control" name="skin" required placeholder="Skin Thickness (in mm)">
+          </div>
+          
+          <div class="flex-container row m-auto justify-content-center">
+            <label for="insulin" class="col-md-4 col-sm-12 m-2 p-1">Insulin</label><br><br>
+            <label for="bmi" class="col-md-4 col-sm-12 m-2 p-1">BMI</label>
+          </div>
+          <div class="flex-container row m-auto justify-content-center">
+            <input type="number" step=0.1 class="col-md-4 col-sm-12 m-2 p-1 form-control" name="insulin" required placeholder="Insulin">
+            <input type="number" step=0.1 class="col-md-4 col-sm-12 m-2 p-1 form-control" name="bmi" required placeholder="BMI">
+          </div>
+
+          <div class="flex-container row m-auto justify-content-center">
+            <label for="func" class="col-md-4 col-sm-12 m-2 p-1">Diabetes Pedigree Function</label><br><br>
+            <label for="age" class="col-md-4 col-sm-12 m-2 p-1">Age</label>
+          </div>
+          <div class="flex-container row m-auto justify-content-center">
+            <input type="number" step=0.001 class="col-md-4 col-sm-12 m-2 p-1 form-control" name="func" required placeholder="Diabetes Pedigree Function">
+            <input type="number" min=21 class="col-md-4 col-sm-12 m-2 p-1 form-control" name="age" required placeholder="Age (in yrs)">
+          </div>
+
+          <div class="flex-container row justify-content-center m-4">
+            <button type="submit" class="btn btn-primary">Predict</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <!-- End Box Container -->
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <br>     <br>     <br>  {% include "copyrights.html" %}
+</body>
+</html>

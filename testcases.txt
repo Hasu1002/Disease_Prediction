@@ -1,0 +1,158 @@
+{
+    "radius_mean": 18.2,
+    "texture_mean": 21.3,
+    "perimeter_mean": 121.4,
+    "area_mean": 1020.2,
+    "smoothness_mean": 0.1247,
+    "compactness_mean": 0.2284,
+    "concavity_mean": 0.2974,
+    "concave_points_mean": 0.1513,
+    "symmetry_mean": 0.2698,
+    "fractal_dimension_mean": 0.0785,
+    "radius_se": 0.7813,
+    "texture_se": 1.21,
+    "perimeter_se": 5.248,
+    "area_se": 105.6,
+    "smoothness_se": 0.0134,
+    "compactness_se": 0.0576,
+    "concavity_se": 0.1356,
+    "concave_points_se": 0.0365,
+    "symmetry_se": 0.0428,
+    "fractal_dimension_se": 0.0125,
+    "radius_worst": 22.1,
+    "texture_worst": 26.4,
+    "perimeter_worst": 148.6,
+    "area_worst": 1535.2,
+    "smoothness_worst": 0.1443,
+    "compactness_worst": 0.4195,
+    "concavity_worst": 0.6781,
+    "concave_points_worst": 0.2756,
+    "symmetry_worst": 0.3698,
+    "fractal_dimension_worst": 0.1094
+}
+-------malignant--------
+
+
+{
+    "radius_mean": 12.5,
+    "texture_mean": 15.3,
+    "perimeter_mean": 82.2,
+    "area_mean": 490.1,
+    "smoothness_mean": 0.0988,
+    "compactness_mean": 0.1015,
+    "concavity_mean": 0.0674,
+    "concave_points_mean": 0.0491,
+    "symmetry_mean": 0.1812,
+    "fractal_dimension_mean": 0.0611,
+    "radius_se": 0.3791,
+    "texture_se": 1.33,
+    "perimeter_se": 2.654,
+    "area_se": 30.1,
+    "smoothness_se": 0.0066,
+    "compactness_se": 0.0198,
+    "concavity_se": 0.0336,
+    "concave_points_se": 0.0134,
+    "symmetry_se": 0.0165,
+    "fractal_dimension_se": 0.0051,
+    "radius_worst": 14.8,
+    "texture_worst": 19.4,
+    "perimeter_worst": 96.6,
+    "area_worst": 687.5,
+    "smoothness_worst": 0.1265,
+    "compactness_worst": 0.1243,
+    "concavity_worst": 0.0926,
+    "concave_points_worst": 0.0849,
+    "symmetry_worst": 0.1976,
+    "fractal_dimension_worst": 0.0658
+}
+-------beningn----------
+
+{
+    "specific_gravity": 1.025,
+    "hyper_tension": 1,  # Assuming 1 for presence of hypertension
+    "hemoglobin": 10.5,
+    "diabetes_mellitus": 1,  # Assuming 1 for presence of diabetes mellitus
+    "albumin": 3,
+    "appetite": 1,  # Assuming 1 for poor appetite
+    "red_blood_cell_count": 3.8,
+    "pus_cell": 1  # Assuming 1 for presence of pus cells
+}----------chronic kidney disease positive case----------
+
+
+{
+    "specific_gravity": 1.020,
+    "hyper_tension": 0,  # Assuming 0 for absence of hypertension
+    "hemoglobin": 13.8,
+    "diabetes_mellitus": 0,  # Assuming 0 for absence of diabetes mellitus
+    "albumin": 0,
+    "appetite": 0,  # Assuming 0 for normal appetite
+    "red_blood_cell_count": 4.5,
+    "pus_cell": 0  # Assuming 0 for absence of pus cells
+}
+--------negative kidney disease------
+
+
+
+{
+    "pregnancies": 6,
+    "glucose_level": 168,
+    "blood_pressure": 72,
+    "skin_thickness": 35,
+    "insulin": 0,  # Insulin value can vary, but for this example, assume 0
+    "bmi": 33.6,
+    "diabetes_pedigree_function": 0.627,
+    "age": 50
+}
+---------diabetics positive case----------
+
+
+
+
+{
+    "pregnancies": 1,
+    "glucose_level": 110,
+    "blood_pressure": 70,
+    "skin_thickness": 20,
+    "insulin": 40,
+    "bmi": 26.2,
+    "diabetes_pedigree_function": 0.245,
+    "age": 25
+}
+----------diabetics negative case--------
+
+
+
+------------heart--------
+Positive Case:
+
+Age: 50
+Sex: Female
+Chest Pain Type: No Difficulty
+Resting Blood Pressure: 120 mmHg
+Serum Cholesterol: 250 mg/dl
+Fasting Blood Sugar: True (or any value indicating high fasting blood sugar)
+Resting Electrocardiographic Results: 0
+Maximum Heart Rate Achieved: 150
+Exercise Induced Angina: No
+ST Depression induced by Exercise Relative to Rest (Oldpeak): 0
+Slope: 0
+Number of Major Vessels Colored by Flourosopy: 0
+Thal: Normal
+
+
+----neg----
+Negative Case:
+
+Age: 50
+Sex: Female
+Chest Pain Type: No Difficulty
+Resting Blood Pressure: 120 mmHg
+Serum Cholesterol: 250 mg/dl
+Fasting Blood Sugar: False (normal fasting blood sugar)
+Resting Electrocardiographic Results: 0
+Maximum Heart Rate Achieved: 150
+Exercise Induced Angina: No
+ST Depression induced by Exercise Relative to Rest (Oldpeak): 0
+Slope: 0
+Number of Major Vessels Colored by Flourosopy: 0
+Thal: Normal

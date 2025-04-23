@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Breast Cancer Prediction</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+   /* General body styling */
+   body {
+            background-image: url(https://img.freepik.com/free-photo/copy-space-heart-shape-stethoscope_23-2148519790.jpg?t=st=1731578155~exp=1731581755~hmac=7208c1c0884091edea9893e7fbf7ada7acc9d5b3ed8b7e860e94ff59855bcdf6&w=740);
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #0e0e0e;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: rgba(17, 2, 2, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        /* Navbar title styling */
+        .navbar .title {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        /* Navbar link styling */
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #027e94;
+        }
+
+        /* Content section styling */
+        .content {
+            background-color: #197485d2;
+            color: #7ed2f3;
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin: 80px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1200px;
+            line-height: 1.6;
+        }
+
+        /* Section headers */
+        h2, h3 {
+            color: #01455f;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        /* Paragraph text styling */
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            background-color: rgba(155, 247, 239, 0.603);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive design for smaller screens */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .content {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 22px;
+            }
+        }
+        .jumbotron {
+    background-color: rgba(255, 193, 7, 0.85); /* Warm yellow background */
+    color: #ffffff; /* White text color */
+    padding: 40px; /* Spacing around the content */
+    text-align: center; /* Center text alignment */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin: 30px auto; /* Center the jumbotron */
+    max-width: 700px; /* Limit the width for readability */
+}
+
+.jumbotron h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50; /* Darker text for emphasis */
+    margin-bottom: 15px;
+}
+
+.jumbotron p {
+    font-size: 18px;
+    color: #333; /* Gray text for the paragraphs */
+    margin: 10px 0;
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .jumbotron h1 {
+        font-size: 24px;
+    }
+    .jumbotron p {
+        font-size: 16px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="title"> <a href="/">Health Prediction System</a></div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+        <a href="/bcancerhome">Breast Cancer Prediction</a>
+        <a href="/dia">Diabetes Prediction</a>
+        <a href="/kidney">Kidney Disease Prediction</a>
+        <a href="/heart">Heart Disease Prediction</a>
+    </div>
+</div>
+
+<div class="container-fluid" style="background-color: #c2e0ece5">
+<br><br><br><br>
+  {% include "footer.html" %}
+
+  <div class="container">
+    
+
+    {% include "tumor.html" %}
+    <div class="jumbotron">
+      <h1>Cancer is Predicted to be {{ output }}</h1>      
+      <p>The Probability of {{ output }} is {{ accuracy * 100 }} %.</p>
+      <p>The time taken to predict is {{ time }} s.</p>
+    </div>
+
+
+
+  </div>  
+
+
+
+</div>
+{% include "copyrights.html" %}
+</body>
+</html>
